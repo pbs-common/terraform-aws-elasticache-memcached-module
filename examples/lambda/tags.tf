@@ -43,3 +43,14 @@ variable "organization" {
     error_message = "The organization variable violates approved regex."
   }
 }
+
+variable "owner" {
+  description = "Tag used to group resources according to owner"
+  type        = string
+  default     = "plops"
+
+  validation {
+    condition     = can(regex("[a-z\\-]+", var.owner))
+    error_message = "The owner variable violates approved regex."
+  }
+}

@@ -1,5 +1,5 @@
 module "lambda" {
-  source = "github.com/pbs/terraform-aws-lambda-module?ref=0.0.6"
+  source = "github.com/pbs/terraform-aws-lambda-module?ref=2.0.0"
 
   handler  = "index.handler"
   filename = "./artifacts/handler.zip"
@@ -17,6 +17,7 @@ module "lambda" {
   environment  = var.environment
   product      = var.product
   repo         = var.repo
+  owner        = var.owner
 }
 
 module "memcached" {
@@ -26,6 +27,7 @@ module "memcached" {
   environment  = var.environment
   product      = var.product
   repo         = var.repo
+  owner        = var.owner
 }
 
 resource "aws_security_group_rule" "memcached_ingress_rule" {
