@@ -17,7 +17,7 @@ locals {
   sg_name        = var.use_prefix ? null : var.sg_name != null ? var.sg_name : local.name
   sg_name_prefix = var.use_prefix ? var.sg_name != null ? var.sg_name : local.name : null
 
-  engine = "memcached"
+  engine                  = "memcached"
   parameter_group_version = "1.6"
 
   creator = "terraform"
