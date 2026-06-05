@@ -28,13 +28,6 @@ module "memcached" {
   product      = var.product
   repo         = var.repo
   owner        = var.owner
-}
 
-resource "aws_security_group_rule" "memcached_ingress_rule" {
-  type                     = "ingress"
-  from_port                = 11211
-  to_port                  = 11211
-  protocol                 = "tcp"
-  source_security_group_id = module.lambda.sg
-  security_group_id        = module.memcached.sg_ids[0]
+  ingress_source_sg_id = module.lambda.sg
 }
