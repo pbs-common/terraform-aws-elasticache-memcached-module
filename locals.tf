@@ -1,7 +1,7 @@
 locals {
   name               = var.name != null ? var.name : var.product
-  security_group_ids = var.security_group_ids != null ? var.security_group_ids : [aws_security_group.sg.id]
-  subnet_group_name  = var.subnet_group_name != null ? var.subnet_group_name : aws_elasticache_subnet_group.subnet_group.id
+  security_group_ids = var.security_group_ids != null ? var.security_group_ids : [aws_security_group.sg[0].id]
+  subnet_group_name  = var.subnet_group_name != null ? var.subnet_group_name : aws_elasticache_subnet_group.subnet_group[0].id
   vpc_id             = var.vpc_id != null ? var.vpc_id : data.aws_vpc.vpc[0].id
   subnets            = var.subnets != null ? var.subnets : data.aws_subnets.private_subnets[0].ids
 

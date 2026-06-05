@@ -122,14 +122,20 @@ variable "nodes" {
   }
 }
 
-variable "egress_cidr_blocks" {
-  description = "List of CIDR blocks to assign to the egress rule of the security group. If null, `egress_security_group_ids` must be used."
+variable "ingress_cidr_blocks" {
+  description = "(optional) List of CIDR blocks for the ingress rule of the security group. Mutually exclusive with `ingress_source_sg_id`."
   default     = ["10.0.0.0/8"]
   type        = list(string)
 }
 
-variable "egress_source_sg_id" {
-  description = "List of security group ID to assign to the egress rule of the security group. If null, `egress_cidr_blocks` must be used."
+variable "ingress_source_sg_id" {
+  description = "(optional) Security group ID for the ingress rule of the security group. Mutually exclusive with `ingress_cidr_blocks`."
   default     = null
   type        = string
+}
+
+variable "allow_all_egress" {
+  description = "(optional) Whether to create an egress rule allowing all outbound traffic (all protocols, 0.0.0.0/0)."
+  default     = true
+  type        = bool
 }
