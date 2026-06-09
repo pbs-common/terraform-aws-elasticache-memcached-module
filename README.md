@@ -7,7 +7,7 @@
 Use this URL for the source of the module. See the usage examples below for more details.
 
 ```hcl
-github.com/pbs/terraform-aws-elasticache-memcached-module?ref=2.1.1
+github.com/pbs/terraform-aws-elasticache-memcached-module?ref=x.y.z
 ```
 
 ### Alternative Installation Methods
@@ -22,7 +22,7 @@ Integrate this module like so:
 
 ```hcl
 module "elasticache-memcached" {
-  source = "github.com/pbs/terraform-aws-elasticache-memcached-module?ref=2.1.1"
+  source = "github.com/pbs/terraform-aws-elasticache-memcached-module?ref=x.y.z"
 
   # Tagging Parameters
   organization = var.organization
@@ -38,7 +38,7 @@ module "elasticache-memcached" {
 
 If this repo is added as a subtree, then the version of the module should be close to the version shown here:
 
-`2.1.1`
+`x.y.z`
 
 Note, however that subtrees can be altered as desired within repositories.
 
@@ -61,13 +61,13 @@ Below is automatically generated documentation on this Terraform module using [t
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 6.48.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 6.49.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_aws_elasticache_parameter_group"></a> [aws\_elasticache\_parameter\_group](#module\_aws\_elasticache\_parameter\_group) | github.com/pbs/terraform-aws-elasticache-parameter-group-module | 1.1.1 |
+| <a name="module_aws_elasticache_parameter_group"></a> [aws\_elasticache\_parameter\_group](#module\_aws\_elasticache\_parameter\_group) | github.com/pbs/terraform-aws-elasticache-parameter-group-module | 1.2.0 |
 
 ## Resources
 
@@ -104,6 +104,7 @@ Below is automatically generated documentation on this Terraform module using [t
 | <a name="input_nodes"></a> [nodes](#input\_nodes) | The initial number of cache nodes that the cache cluster will have. This value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed. | `number` | `2` | no |
 | <a name="input_notification_topic_arn"></a> [notification\_topic\_arn](#input\_notification\_topic\_arn) | ARN of an SNS topic to send ElastiCache notifications to. Example: arn:aws:sns:us-east-1:012345678999:my\_sns\_topic. | `string` | `null` | no |
 | <a name="input_owner"></a> [owner](#input\_owner) | Tag used to group resources according to owner | `string` | `"plops"` | no |
+| <a name="input_parameter_group_description"></a> [parameter\_group\_description](#input\_parameter\_group\_description) | Description for the elasticache parameter group. Defaults to: "ElastiCache parameter group for <name> <engine>". | `string` | `null` | no |
 | <a name="input_parameter_group_name"></a> [parameter\_group\_name](#input\_parameter\_group\_name) | Name of the parameter group to be created. | `string` | `null` | no |
 | <a name="input_port"></a> [port](#input\_port) | The port number on which each of the cache nodes will accept connections. Changing this value will re-create the resource. | `number` | `11211` | no |
 | <a name="input_preferred_availability_zones"></a> [preferred\_availability\_zones](#input\_preferred\_availability\_zones) | List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of num\_cache\_nodes. If you want all the nodes in the same Availability Zone, use availability\_zone instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference. | `list(string)` | `null` | no |
