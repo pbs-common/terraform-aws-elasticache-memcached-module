@@ -23,7 +23,7 @@ resource "aws_elasticache_cluster" "cluster" {
 
 module "aws_elasticache_parameter_group" {
   count  = var.parameter_group_name == null ? 1 : 0
-  source = "github.com/pbs/terraform-aws-elasticache-parameter-group-module?ref=1.1.1"
+  source = "github.com/pbs/terraform-aws-elasticache-parameter-group-module?ref=1.2.0"
 
   name                    = local.name
   engine                  = local.engine
@@ -33,4 +33,5 @@ module "aws_elasticache_parameter_group" {
   product                 = var.product
   owner                   = var.owner
   repo                    = var.repo
+  description             = var.parameter_group_description
 }

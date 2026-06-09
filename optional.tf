@@ -139,3 +139,9 @@ variable "allow_all_egress" {
   default     = true
   type        = bool
 }
+
+variable "parameter_group_description" {
+  description = "Description for the elasticache parameter group. Defaults to: \"ElastiCache parameter group for <name> <engine>\"."
+  default     = null
+  type        = string
+}
