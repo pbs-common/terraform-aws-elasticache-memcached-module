@@ -106,6 +106,12 @@ variable "sg_name" {
   type        = string
 }
 
+variable "sg_description" {
+  description = "Description for the security group. Defaults to: \"Controls access to the <name> <engine> cluster\"."
+  default     = null
+  type        = string
+}
+
 variable "parameter_group_name" {
   description = "Name of the parameter group to be created."
   default     = null
