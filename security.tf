@@ -1,7 +1,7 @@
 resource "aws_security_group" "sg" {
   count = var.security_group_ids == null ? 1 : 0
 
-  description = "Controls access to the ${local.name} ${local.engine} cluster"
+  description = coalesce(var.sg_description, "Controls access to the ${local.name} ${local.engine} cluster")
 
   name        = local.sg_name
   name_prefix = local.sg_name_prefix
