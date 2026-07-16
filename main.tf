@@ -34,4 +34,5 @@ module "aws_elasticache_parameter_group" {
   owner                   = var.owner
   repo                    = var.repo
   description             = var.parameter_group_description
+  parameters              = var.parameters
 }

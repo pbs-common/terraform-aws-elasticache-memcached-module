@@ -151,3 +151,12 @@ variable "parameter_group_description" {
   default     = null
   type        = string
 }
+
+variable "parameters" {
+  description = "(optional) List of parameters to add to the parameter group created by this module. Ignored if `parameter_group_name` is set."
+  default     = []
+  type = list(object({
+    name  = string
+    value = string
+  }))
+}
